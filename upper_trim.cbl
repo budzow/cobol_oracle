@@ -15,7 +15,7 @@
            END-EXEC.
 
            EXEC SQL
-               SELECT UPPER(TRIM(:WS-INPUT))
+               SELECT DISTINCT UPPER(TRIM(:WS-INPUT))
                INTO :WS-RESULT
                FROM DUAL
            END-EXEC.
