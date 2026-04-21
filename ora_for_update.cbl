@@ -1,9 +1,9 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. DUAL
+       PROGRAM-ID. ORA-FOR-UPDATE
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 WS-RESULT    PIC 9(1).
+       01 W-DATUM-N    PIC 9(1).
        01 WS-USERNAME  PIC X(20) VALUE 'scott'.
        01 WS-PASSWORD  PIC X(20) VALUE 'tiger'.
 
@@ -15,9 +15,9 @@
 
            EXEC SQL
                SELECT 1
-               INTO :WS-RESULT
-               FROM DUAL
+               INTO :W-DATUM-N  FROM DUAL
+               FOR UPDATE WAIT 3
            END-EXEC.
 
-           DISPLAY 'RESULT: ' WS-RESULT.
+           DISPLAY 'RESULT: ' W-DATUM-N.
            STOP RUN.
