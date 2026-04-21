@@ -14,7 +14,7 @@
            END-EXEC.
 
            EXEC SQL
-               SELECT 1
+               SELECT DISTINCT 1
                INTO :W-DATUM-N  FROM DUAL
                FOR UPDATE WAIT 3
            END-EXEC.
