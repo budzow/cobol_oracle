@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ORA-JOIN
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-STOCK-COUNT    PIC 9(1).
+
+	   PROCEDURE DIVISION.
+       MAIN-PARA.
+           EXEC SQL
+               SELECT I.STOCK_COUNT
+               INTO :WS-STOCK-COUNT
+               FROM INVENTORY I, REGION R
+               WHERE I.ITEM_ID = 101 AND
+			   R.NAME = 'APAC' AND
+			   I.INVENTORY_REGION= R.REGION
+           END-EXEC.
